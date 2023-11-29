@@ -1,0 +1,8 @@
+{
+  "publisher_lock": "echovrce",
+  "apiservice_host": "https://api.echovrce.com",
+  "configservice_host": "ws://config.echovrce.com",
+  "matchingservice_host": "ws://matchmaker.echovrce.com",
+  "transactionservice_host": "ws://transaction.echovrce.com",
+  "loginservice_host": "ws://login.echovrce.com/?displayname=USERNAME&auth=PASSWORD"
+}
