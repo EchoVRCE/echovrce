@@ -1,8 +1,9 @@
 {
-  "apiservice_host": "https://proxy.echovrce.com:6789/api",
-  "loginservice_host": "ws://proxy.echovrce.com:6789/login",
-  "configservice_host": "ws://proxy.echovrce.com:6789/config",
-  "matchingservice_host": "ws://proxy.echovrce.com:6789/matchmaker",
-  "transactionservice_host": "ws://proxy.echovrce.com:6789/transaction",
+  "apiservice_host": "https://api.proxy.echovrce.com",
+  "configservice_host": "ws://config.proxy.echovrce.com",
+  "loginservice_host": "ws://login.proxy.echovrce.com",
+  "matchingservice_host": "ws://matchmaker.proxy.echovrce.com",
+  "transactionservice_host": "ws://transaction.proxy.echovrce.com",
+  "serverdb_host": "ws://serverdb.proxy.echovrce.com",
   "publisher_lock": "EchoVRCE"
 }
