@@ -1,9 +1,9 @@
 {
-  "apiservice_host": "https://api.echovrce.com",
-  "configservice_host": "ws://config.echovrce.com",
-  "loginservice_host": "ws://login.echovrce.com/?auth=PASSWORD&displayname=USERNAME",
-  "matchingservice_host": "ws://matchmaker.echovrce.com",
-  "serverdb_host": "ws://serverdb.echovrce.com",
-  "transactionservice_host": "ws://transaction.echovrce.com",
-  "publisher_lock": "EchoVRCE"
+  "apiservice_host": "http://global.echovrce.com:80/api",
+  "configservice_host": "ws://global.echovrce.com:80/config",
+  "loginservice_host": "ws://global.echovrce.com:80/login",
+  "matchingservice_host": "ws://global.echovrce.com:80/matching",
+  "serverdb_host": "ws://global.echovrce.com:80/serverdb",
+  "transactionservice_host": "ws://global.echovrce.com:80/transaction",
+  "publisher_lock": "echovrce"
 }
