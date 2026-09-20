@@ -1,30 +1,93 @@
-
 # EchoVRCE
-- EchoVRCE (pronounced "echo-verse") is short for **Echo VR Community Edition**
-- This is what you are playing when you connect to community server for Echo VR
----
+
+**EchoVRCE** (pronounced "echo-verse") is short for **Echo VR Community Edition**:
+the community-run service that has kept Echo VR playable since Ready At Dawn shut
+the official servers down on August 1, 2023. When you play Echo VR today, this is
+what you are connected to.
+
+## Official links
+
+- Website: <https://echovrce.com>
+- This GitHub organization: <https://github.com/EchoVRCE> — the project's config and website
+- Code (servers, tools, the backend): <https://github.com/EchoTools>
+- Echo VR Lounge Discord (the main player community, install help, matchmaking): <https://guilds.echovrce.com/echo-vr-lounge>
+- EchoVRCE Discord (operators, hosts, service announcements): <https://guilds.echovrce.com/echovrce>
+
+If a link, download, or Discord server claims to be EchoVRCE and is not reachable from
+one of the places above, it is not ours.
+
+## How do I play?
+
+Start at <https://echovrce.com>. It links the two supported installs:
+
+- **PC (PCVR, or a Quest tethered to a PC):** the
+  [Echo VR Installer](https://github.com/marshmallow-mia/Echo-VR-Installer/releases).
+  It downloads the game, keeps it updated, and applies the community patch if you never
+  owned Echo VR on Meta. Its README points at the Lounge channels for PC and Quest setup
+  and for help with specific errors.
+- **Quest (standalone):** follow the guide at <https://quest.echovr.de/>.
+
+Your in-game identity is your Discord account. Join the Echo VR Lounge before you
+install; on first launch the game shows a link code, and you run `/link-headset` with
+that code in the Lounge to tie the headset to your Discord account.
+
+## What is `src/config.json`?
+
+The service-endpoint file the community build of Echo VR points at. The installers
+handle it for you; it is published here for anyone setting up by hand, and
+<https://echovrce.com/config> redirects to the current copy. There is nothing to fill
+in: sign-in is through Discord, not a username and password in the file.
+
 ## FAQ
 
-### If it is "EchoVRCE", why does everyone call it "Echo Relay"?
-They don't. When someone says "Echo Relay" they are referring to the software running on the community servers.
-If you want to get involved with that project, see [EchoRelay](https://github.com/EchoTools/EchoRelay)
-
 ### Didn't they shut down all the servers for Echo VR?
-Yes, [ReadyAtDawn](https://www.readyatdawn.com/) did that on August 1st, 2023. Community servers went up on October 31, 2023 thanks to the work of [Xenomega](https://github.com/Xenomega) releasing the [EchoRelay](https://github.com/Xenomega/EchoRelay) project, and the [Echo Combat Lounge](https://discord.gg/echo-combat-lounge-779349159852769310) Discord community running it on their personal servers.
 
-### How do I play?
-There are about a hundred youtube videos, but the current recommendation is to use the [config.json](https://raw.githubusercontent.com/EchoVRCE/echovrce/main/src/config.json) in this repo. Replace the "USERNAME" and "PASSWORD" with the username you want and a completely random password. The password is not encrypted, so it should not be something you use anywhere else. Fortunately, you do not need to remember it, it just has to be unique. Then follow any instructions to get the config into your copy of the game. If you run into difficulty ask questions in the Echo Combat Lounge [help-channel](https://discord.com/channels/779349159852769310/1170584218649231390)
+Yes. [Ready At Dawn](https://www.readyatdawn.com/) did that on August 1, 2023.
+Community servers went up on October 31, 2023, thanks to
+[Xenomega](https://github.com/Xenomega) releasing the
+[EchoRelay](https://github.com/EchoTools/EchoRelay) project and the community that is
+now the Echo VR Lounge running it on their own machines.
 
-### Can I play Echo Arena on the Echo Combat Lounge servers?
-Yes, Echo VR itself is unmodified. The only change during installation is to point to community servers. "Echo Combat Lounge" is the name largest group, and there are usually enough players online at any given time to play a round of Arena.
+### Is this still "Echo Relay"?
+
+Not any more. Echo Relay was the 2023 proof of concept the community launched on. Since
+mid-2024 the live service has been a Nakama-based backend built for Echo VR by the
+EchoTools developers: [EchoTools/nakama](https://github.com/EchoTools/nakama) (Discord
+sign-in, matchmaking, game-server registry) with
+[nevr-runtime](https://github.com/EchoTools/nevr-runtime) game servers. The config in
+this repo switched to those endpoints on June 29, 2024. People still say "Echo Relay"
+out of habit.
+
+### Is Echo VR itself modified?
+
+The game is the same game. The installer points it at the community service and,
+for people who never owned it on Meta, applies a licence patch. Everything else is
+server-side.
 
 ### Do I need a computer, or can I play on Quest?
-Currently you need a computer to modify the configuration file to connect to a community server. However, after that initial setup, you do not need a computer. You can play Echo VR just like you did when the original servers were up.
+
+Both work. PC players install with the Echo VR Installer. Quest players need a computer
+once, to sideload the community build; after that the headset plays on its own. The
+Quest guide at <https://quest.echovr.de/> walks through it.
 
 ### Does everything work?
-There are a few quirks:
-- The party system is not reliable, but [spark](https://ignitevr.gg/spark/) links work.
-- Matchmaking does not take skill into account, so you may be playing against VRML players your first match.
-- Emotes are not differentiated by left/right. Whatever you chose last will apply to both sides.
-- In-game tints are ignored, but social tints work fine.
-These quirks are due to the server side (Echo Relay) being built from the ground up without any knowledge of the original server code. They may be fixed as the EchoTools developers learn more about how Echo VR communicates with game servers.
+
+Mostly, and it keeps improving; the backend and tools are under active development.
+Current known issues, release notes, and service status are posted in the EchoVRCE
+Discord (`#release-notes`, `#changelog`, `#service-updates`, `#server-status-updates`).
+Ask in the Lounge's help channels if something on your end is broken.
+
+### Can I host a game server?
+
+Yes, on Windows or Linux:
+
+- Windows: [EchoVR-Windows-Hosts-Resources](https://github.com/EchoTools/EchoVR-Windows-Hosts-Resources)
+- Linux / Docker: [Echo-VR-Server-on-Docker](https://github.com/marshmallow-mia/Echo-VR-Server-on-Docker)
+
+Game servers register with the central service, so hosting needs an operator account.
+Ask in the EchoVRCE Discord before you start.
+
+---
+
+Echo VR is © Meta Platforms and Ready At Dawn. EchoVRCE is a fan-run project and is not
+affiliated with, endorsed by, or supported by either of them.
